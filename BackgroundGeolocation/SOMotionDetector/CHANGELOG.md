@@ -1,2 +1,1 @@
-SOMotionDetector
-===========
+# SOMotionDetector

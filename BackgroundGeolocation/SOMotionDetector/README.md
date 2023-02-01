@@ -1,12 +1,11 @@
-SOMotionDetector
-================
+# SOMotionDetector
 
 Simple library to detect motion for iOS by <b> <a href="https://github.com/arturdev">arturdev</a> </b>.
 
 Based on location updates and acceleration.
 
 ###Requierments
-iOS > 6.0 
+iOS > 6.0
 
 Compatible with <b>iOS 9</b>
 
@@ -16,8 +15,8 @@ Compatible with <b>iOS 9</b>
 
 This demo project also demonstrates how to use this library to relaunch the app from killed state.
 
-USAGE
-=====
+# USAGE
+
 Copy <b>SOMotionDetector</b> folder to your project.
 
 Link <b>CoreMotion.framework</b>, <b>CoreLocation.framework</b>.
@@ -32,13 +31,13 @@ Import <b>"SOMotionDetector.h"</b> file and set SOMotionDetector's callbacks
 [SOMotionDetector sharedInstance].motionTypeChangedBlock = ^(SOMotionType motionType) {
     //...
 };
-    
+
 [SOMotionDetector sharedInstance].locationChangedBlock = ^(CLLocation *location) {
     //...
 };
 
 [SOMotionDetector sharedInstance].accelerationChangedBlock = ^(CMAcceleration acceleration) {
-    //...    
+    //...
 };
 ```
 
@@ -46,7 +45,7 @@ If you need to know when location updates were automatically paused due to your 
 
 ```ObjC
 [SOMotionDetector sharedInstance].locationWasPausedBlock = ^(BOOL changed) {
-    //...    
+    //...
 };
 ```
 
@@ -55,29 +54,35 @@ To Support iOS > 8.0 you must add in your info.plist file one of the following k
 `NSLocationAlwaysUsageDescription`<br> `NSLocationWhenInUseUsageDescription`
 
 To enable background location updates in iOS > 9.0 you must set `allowsBackgroundLocationUpdates` to `YES` <br>
+
 ```ObjC
     [SOLocationManager sharedInstance].allowsBackgroundLocationUpdates = YES;
 ```
 
-You are done! 
+You are done!
 
 Now to start motion detection just call
-```ObjC 
+
+```ObjC
 [[SOMotionDetector sharedInstance] startDetection];
 ```
 
 To stop detection call
-```ObjC 
+
+```ObjC
 [[SOMotionDetector sharedInstance] stopDetection];
-```  
+```
 
 To start step counter call
+
 ```ObjC
     [[SOStepDetector sharedInstance] startDetectionWithUpdateBlock:^(NSError *error) {
         //...
     }];
 ```
+
 ###Detecting motion types
+
 ```ObjC
 typedef enum
 {
@@ -88,8 +93,8 @@ typedef enum
 } SOMotionType;
 ```
 
-CUSTOMIZATION
-=============
+# CUSTOMIZATION
+
 ```ObjC
 
 /**
